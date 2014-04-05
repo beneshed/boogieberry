@@ -22,17 +22,13 @@ class Vote(TimeStampedModel):
 
 
 class Song(TimeStampedModel):
-    song_id = models.IntegerField()
-    albumArtist = models.CharField(max_length=255)
-    albumArtistKey = models.CharField(max_length=255)
+    songId = models.IntegerField()
+    albumArtist = models.CharField(max_length=255, blank=True, null=True)
+    artist = models.CharField(max_length=255, blank=True, null=True)
     albumKey = models.CharField(max_length=255)
-    artist = models.CharField(max_length=255)
-    artistKey = models.CharField(max_length=255)
     artistUrl = models.CharField(max_length=255)
-    baseIcon = models.CharField(max_length=255)
     embedUrl = models.CharField(max_length=255)
     icon = models.CharField(max_length=255)
-    icon400 = models.CharField(max_length=255)
     key = models.CharField(max_length=25)
     name = models.CharField(max_length=255)
     short_url = models.CharField(max_length=255)
