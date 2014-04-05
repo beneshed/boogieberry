@@ -7,11 +7,11 @@ class SongPollSerializer(serializers.ModelSerializer):
         model = SongPoll
 
 class VoteSerializer(serializers.ModelSerializer):
-    vote_id = models.RelatedField(many=False)
-    poll_id = models.RelatedField(many=False)
+    vote_id = serializers.RelatedField(many=False)
+    poll_id = serializers.RelatedField(many=False)
     class Meta:
         model = Vote
 
-class SongSerializer(serializers.ModelSerialzier):
+class SongSerializer(serializers.ModelSerializer):
     class Meta:
         model = Song

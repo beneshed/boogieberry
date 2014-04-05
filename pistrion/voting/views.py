@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, render_to_repsonse
+from django.shortcuts import render, get_object_or_404, render_to_response
 from django.template import RequestContext
 from django.views.generic import (ListView, DetailView)
 
@@ -8,7 +8,7 @@ from voting.serializers import (SongPollSerializer, SongSerializer, Vote)
 from voting.models import (SongPoll, Song, Vote)
 # Create your views here.
 
-class SongPollViewset(viewsets.ReadOnlyModelViewSet):
+class SongPollViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = SongPoll.objects.all()
     serializer_class = SongPollSerializer
 
