@@ -6,7 +6,7 @@ from localflavor.us.models import PhoneNumberField
 # Create your models here.
 class SongPoll(TimeStampedModel):
     creator = models.ForeignKey(User)
-    choices = models.ManyToMany('Song')
+    choices = models.ManyToManyField('Song')
 
     def __unicode__(self):
         return '%s' % self.id

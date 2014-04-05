@@ -52,7 +52,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'pistrion.urls'
 
-WSGI_APPLICATION = 'pistrion.wsgi.application'
+WSGI_APPLICATION = 'pistrion_site.wsgi.application'
 
 
 # Database
