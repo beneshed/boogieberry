@@ -31,7 +31,8 @@ class Song(TimeStampedModel):
     icon = models.CharField(max_length=255)
     key = models.CharField(max_length=25)
     name = models.CharField(max_length=255)
-    short_url = models.CharField(max_length=255)
+    duration = models.IntegerField(default=0)
+    shortUrl = models.CharField(max_length=255)
 
     def __unicode__(self):
-        return '%s' % self.title
+        return '%s' % self.name

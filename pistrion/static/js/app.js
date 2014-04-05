@@ -18,9 +18,3 @@ app = angular.module 'pistirion', ['ngResource']
     });
     var song4 = Song.get({id:found[3]}, function() {
     });
-    
-app.controller 'AppController', ['$scope', '$http', ($scope, $http) ->
-    var Song 
-    $scope.songs = []
-    $http.get('/api/songs').then (result) ->
-        
