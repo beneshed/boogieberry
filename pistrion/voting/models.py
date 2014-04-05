@@ -19,8 +19,8 @@ class Vote(TimeStampedModel):
 
     def __unicode__(self):
         return '%' % self.number
-    
-    
+
+
 class Song(TimeStampedModel):
     song_id = models.IntegerField()
     albumArtist = models.CharField(max_length=255)
