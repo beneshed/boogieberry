@@ -121,23 +121,19 @@
 
       // reset the data
       $.get( "/trigger", function() {} );
-      console.log( " logged to trigger " );
 
       // actually get the winning key
       $.ajax({
         type: "GET",
-        url: "/retrieve",
+        url: "/retrieve/",
         success: function( data ) {
           alert( data );
           //$("#play_key").rdio().play( data );
         }
       });
-      console.log(" retrieved data " );
 
       // clock restarts 
       $("#example").TimeCircles().restart();
-    } else { 
-      console.log(" not doin much ");
     }
   });
 
