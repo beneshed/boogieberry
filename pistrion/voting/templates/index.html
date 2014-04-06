@@ -28,24 +28,37 @@
 
         <div class="row">
 
-          <div class="col-xs-12 col-sm-6 col-md-3 text-center" style="padding: 20px;">
-            <img src="{$song1.icon$}">
-              <h2 style="font-family: Roboto; font-weight: 200;">{$song1.name$}</h2>
-          </div>
+          <div class="col-xs-12">
 
-          <div class="col-xs-12 col-sm-6 col-md-3 text-center" style="padding: 20px;">
-            <img src="{$song2.icon$}">
-            <h2 style="font-family: Roboto; font-weight: 200;">{$song2.name$}</h2>
-          </div>
+            <div id="albums">
 
-          <div class="col-xs-12 col-sm-6 col-md-3 text-center" style="padding: 20px;">
-            <img src="{$song3.icon$}">
-            <h2 style="font-family: Roboto; font-weight: 200;">{$song3.name$}</h2>
-          </div>
+              <div class="item">
+                <img src="{$song1.icon$}">
+                <h2>{$song1.name$}</h2>
+              </div>
 
-          <div class="col-xs-12 col-sm-6 col-md-3 text-center" style="padding: 20px;">
-            <img src="{$song4.icon$}">
-            <h2 style="font-family: Roboto; font-weight: 200;">{$song4.name$}</h2>
+              <div class="item">
+                <img src="{$song2.icon$}">
+                <h2>{$song2.name$}</h2>
+              </div>
+
+              <div class="item">
+                <img src="{$song3.icon$}">
+                <h2>{$song3.name$}</h2>
+              </div>
+
+              <div class="item">
+                <img src="{$song4.icon$}">
+                <h2>{$song4.name$}</h2>
+              </div>
+
+              <div class="item">
+                <img src="{$song5.icon$}">
+                <h2>{$song5.name$}</h2>
+              </div>
+
+            </div>
+
           </div>
 
         </div>
@@ -70,18 +83,33 @@
     Seconds: { color: "white" }
     },
   });
-    $('img').hide();
-    $('img').each(function(i) {
-        if (this.complete) {
-            $(this).fadeIn();
-        } else {
-            $(this).load(function() {
-                $(this).slideDown(250);
-            });
-        }
-    });
-    $('#example').hide();
-    $('#example').fadeIn(1000);
-    $('body').css('padding-top', '0');
+
+//    $('img').hide();
+//    $('img').each(function(i) {
+//        if (this.complete) {
+//            $(this).fadeIn();
+//        } else {
+//            $(this).load(function() {
+//                $(this).slideDown(250);
+//            });
+//        }
+//    });
+//    $('#example').hide();
+//    $('#example').fadeIn(1000);
+//    $('body').css('padding-top', '0');
+
+$(document).ready(function() {
+ 
+  $("#albums").owlCarousel({
+ 
+      items : 4,
+      itemsDesktop : [1199,3],
+      itemsDesktopSmall : [979,3],
+      navigation: true
+ 
+  });
+ 
+});
+
 </script>
 {% endblock %}
