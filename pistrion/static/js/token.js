@@ -1,2 +1,2 @@
-var playback_token = "h7f4tftm3k29nf6ccuph5dr4";
-var domain = "localhost";
+var playback_token = "GBFTQPXr_____2g3ZjR0ZnRtM2syOW5mNmNjdXBoNWRyNGJlbmphbWlud2F0ZXJzLm1lhEOYXDqNr8PkuLFPjQSGlA==";
+var domain = "benjaminwaters.me";
