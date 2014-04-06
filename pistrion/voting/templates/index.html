@@ -119,6 +119,9 @@
     var value = $("#example").TimeCircles().getTime();
     if( value <= 2 ) {
 
+      // clock restarts 
+      $("#example").TimeCircles().restart();
+
       // reset the data
       $.ajax({
         type: "GET",
@@ -135,8 +138,13 @@
         }
       });
 
-      // clock restarts 
-      $("#example").TimeCircles().restart();
+      // delete the votes bitch
+      $.ajax({
+        type: "GET",
+        url: "/delete_votes/",
+        async: false
+      });
+
     }
   });
 
