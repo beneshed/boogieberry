@@ -6,10 +6,10 @@ from localflavor.us.models import PhoneNumberField
 # Create your models here.
 class Vote(TimeStampedModel):
     number = PhoneNumberField()
-    vote_id = models.ForeignKey('Song')
+    song_id = models.ForeignKey('Song')
 
     def __unicode__(self):
-        return '%' % self.number
+        return u'%s' % str(self.number)
 
 
 class Song(TimeStampedModel):

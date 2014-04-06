@@ -15,4 +15,5 @@ class SongViewSet(viewsets.ReadOnlyModelViewSet):
 class VoteViewSet(viewsets.ModelViewSet):
     queryset = Vote.objects.all()
     serializer_class = VoteSerializer
+    filter_fields = ('song_id__songId')
 

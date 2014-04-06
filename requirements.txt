@@ -3,6 +3,7 @@ Rdio==0.2
 South==0.8.4
 argparse==1.2.1
 distribute==0.6.34
+django-filter==0.7
 django-localflavor==1.0
 django-model-utils==2.0.3
 django-phonenumber-field==0.2a3
