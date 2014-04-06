@@ -6,6 +6,7 @@
 <script type="text/javascript" src="{% static 'js/angular-resource.js' %}"></script>
 <link href="{% static 'css/TimeCircles.css' %}" rel="stylesheet">
 <script type="text/javascript" src="{% static 'js/pistrion-app.js' %}"></script>
+<link href='http://fonts.googleapis.com/css?family=Roboto:200,400,300,500' rel='stylesheet' type='text/css'>
 
 <div class="row">
   <div class="col-sm-2" style="color: white;">
@@ -27,40 +28,24 @@
 
         <div class="row">
 
-          <div class="col-xs-12 col-sm-6 text-center" style="padding: 20px;">
+          <div class="col-xs-12 col-sm-6 col-md-3 text-center" style="padding: 20px;">
             <img src="{$song1.icon$}">
-<!--
-              <td>{$song1.name$}</td>
-              <td>{$song1.artist$}{$song1.albumArtist$}</td>
-              <td>{$song1.songId$}</td>
--->
+              <h2 style="font-family: Roboto; font-weight: 200;">{$song1.name$}</h2>
           </div>
 
-          <div class="col-xs-12 col-sm-6 text-center" style="padding: 20px;">
+          <div class="col-xs-12 col-sm-6 col-md-3 text-center" style="padding: 20px;">
             <img src="{$song2.icon$}">
-<!--
-              <td>{$song2.name$}</td>
-              <td>{$song2.artist$}{$song2.albumArtist$}</td>
-              <td>{$song2.songId$}</td>
--->
+            <h2 style="font-family: Roboto; font-weight: 200;">{$song2.name$}</h2>
           </div>
 
-          <div class="col-xs-12 col-sm-6 text-center" style="padding: 20px;">
+          <div class="col-xs-12 col-sm-6 col-md-3 text-center" style="padding: 20px;">
             <img src="{$song3.icon$}">
-<!--
-              <td>{$song3.name$}</td>
-              <td>{$song3.artist$}{$song3.albumArtist$}</td>
-              <td>{$song3.songId$}</td>
--->
+            <h2 style="font-family: Roboto; font-weight: 200;">{$song3.name$}</h2>
           </div>
 
-          <div class="col-xs-12 col-sm-6 text-center" style="padding: 20px;">
+          <div class="col-xs-12 col-sm-6 col-md-3 text-center" style="padding: 20px;">
             <img src="{$song4.icon$}">
-<!--
-              <td>{$song4.name$}</td>
-              <td>{$song4.artist$}{$song4.albumArtist$}</td>
-              <td>{$song4.songId$}</td>
--->
+            <h2 style="font-family: Roboto; font-weight: 200;">{$song4.name$}</h2>
           </div>
 
         </div>
@@ -85,5 +70,18 @@
     Seconds: { color: "white" }
     },
   });
+    $('img').hide();
+    $('img').each(function(i) {
+        if (this.complete) {
+            $(this).fadeIn();
+        } else {
+            $(this).load(function() {
+                $(this).slideDown(250);
+            });
+        }
+    });
+    $('#example').hide();
+    $('#example').fadeIn(1000);
+    $('body').css('padding-top', '0');
 </script>
 {% endblock %}
