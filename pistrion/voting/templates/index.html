@@ -135,7 +135,8 @@
         url: "/retrieve/",
         success: function( data ) {
           document.getElementById('apiswf').rdio_play( data );
-        }
+        },
+        async: false
       });
 
       // delete the votes bitch
