@@ -27,6 +27,21 @@
         <h1 style="text-align:center;"><i class="glyphicon glyphicon-check"></i> Text the code to <strong>(703) 997-8436</strong> to vote!</h1>
       </div>
 
+<div class="progress" style="border-radius: 0">
+  <div class="progress-bar progress-bar-success" style="width: 35%" id="progress1">
+    <span class="sr-only">35% Complete (success)</span>
+  </div>
+  <div class="progress-bar progress-bar-info" style="width: 35%" id="progress2">
+    <span class="sr-only">35% Complete (info)</span>
+  </div>
+  <div class="progress-bar progress-bar-danger" style="width: 10%" id="progress3">
+    <span class="sr-only">10% Complete (danger)</span>
+  </div>
+  <div class="progress-bar progress-bar-warning" style="width: 20%" id="progress4">
+    <span class="sr-only">20% Complete (warning)</span>
+  </div>
+</div>
+
       <div class="widget-container" ng-app="pistrion-app" ng-controller="AppController">
 
         <div class="row">
@@ -73,6 +88,7 @@
 
 </div><!-- row End -->
 
+
 <!-- Main Container ends here -->
 <script type="text/javascript">
   $("#example").TimeCircles({animation: 'ticks',
@@ -85,6 +101,25 @@
     Minutes: { show: false },
     Seconds: { color: "white" }
     },
+  });
+  function getRandomInt (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  function generateProgressPercentages() {
+    p1 = getRandomInt(5, 45);
+    p3 = getRandomInt(5, 45);
+    r = getRandomInt(15, 75) * 0.01;
+    p2 = Math.floor((100 - p1 - p3) * r);
+    p4 = 100 - p1 - p2 - p3;
+    $("#progress1").width(p1 + "%");
+    $("#progress2").width(p2 + "%");
+    $("#progress3").width(p3 + "%");
+    $("#progress4").width(p4 + "%");
+    sum = p1 + p2 + p3 + p4;
+    setTimeout(function () { generateProgressPercentages(); }, 3000);
+  }
+  $(document).ready(function() {
+    generateProgressPercentages();
   });
 
 //    $('img').hide();
