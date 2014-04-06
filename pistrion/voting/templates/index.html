@@ -112,6 +112,21 @@
     Seconds: { color: "white" }
     },
   });
+  $("#example").TimeCircles().addListener( function() {
+    var value = $("#example").TimeCircles().getTime();
+    if( value <= 1 ) {
+      $.get( "/trigger", function( ) success { } );
+      $.ajax({
+        type: "GET",
+        url: "/retrieve",
+        success: function( data ) {
+          $("#play_key").rdio().play( data );
+        }
+      });
+      $("#example").TimeCircles().restart();
+    }
+    console.log("hello world");
+  });
   function getRandomInt (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
