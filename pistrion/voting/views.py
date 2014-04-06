@@ -64,6 +64,5 @@ def retrieve(request):
 
     (song_id, _) = data.most_common()[0]
     song_key = Song.objects.get( name=song_id ).key
-    print song_key
 
     return HttpResponse(song_key)
