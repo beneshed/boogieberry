@@ -1,41 +1,34 @@
 from twilio.rest import TwilioRestClient
 from email.utils import parsedate_tz
-from datetime    import datetime
-from time        import time
+from datetime import datetime
+from time import time
+from django.core.management.base import BaseCommand, CommandError
+from voting.models import Vote, Song
 
 # Your Account Sid and Auth Token from twilio.com/user/account
-'''
-for x in messages:
-    x.date_created = datetime(*parsedate_tz(x.date_created)[:-3])
+class Command(BaseCommand):
+    args = "FUCK THIS SHIT MAKE A NIGGA WANNA JUMP"
+    help = "LET HIM GO"
+    def handle(self, *args, **options):
+        account_sid = "ACec0c7c5211527b56dedd223ea469e3bc"
+        auth_token  = "a79b8b5c99c2cf699782fe2026cf1036"
+        client = TwilioRestClient(account_sid, auth_token)
 
-for x in messages:
-    if "+17039978436" not in x.from_ and x.date_created > datetime(2014, 4, 5, 23, 0, 0, 0):
-        print x.date_created
-'''
-def get_votes_after_date(timestamp, id1, id2, id3, id4):
-    account_sid = "ACec0c7c5211527b56dedd223ea469e3bc"
-    auth_token  = "a79b8b5c99c2cf699782fe2026cf1036"
-    client = TwilioRestClient(account_sid, auth_token)
+        resource_uri = "/2010-04-01/Accounts/ACec0c7c5211527b56dedd223ea469e3bc/messages/"
 
-    resource_uri = "/2010-04-01/Accounts/ACec0c7c5211527b56dedd223ea469e3bc/messages/"
-
-    messages = client.messages.list()
-
-    vote1 = 0
-    vote2 = 0
-    vote3 = 0
-    vote4 = 0
+        messages = client.messages.list()
 
     # convert current dates to timestamps, college messages
-    for x in messages: 
-        x.date_created = x.date_created = datetime(*parsedate_tz(x.date_created)[:-3])
-        if x.date_created > timestamp:
-            if x.body == id1:
-                vote1 += 1
-            if x.body == id2:
-                vote2 += 1
-            if x.body == id3:
-                vote3 += 1
-            if x.body == id4:
-                vote4 += 1
-    return [vote1, vote2, vote3, vote4]
+        for x in messages: 
+            x.date_created = x.date_created = datetime(*parsedate_tz(x.date_created)[:-3])
+            try:
+                int(x.body)
+            except ValueError:
+                break 
+            if(int(x.body) < 3000 or int(x.body)> 3101):
+                try:
+                    s = Song.objects.get(songId=x.body)
+                except Song.DoesNotExist:
+                    raise CommandError('Song "%s" does not exist' % poll_id)
+                v = Vote(number=x.from_,song_id=s)
+                v.save()
