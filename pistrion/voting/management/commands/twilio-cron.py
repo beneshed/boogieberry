@@ -24,11 +24,12 @@ class Command(BaseCommand):
             try:
                 int(x.body)
             except ValueError:
-                break 
-            if(int(x.body) < 3000 or int(x.body)> 3101):
+                continue 
+            if(int(x.body) > 3000 or int(x.body)< 3101):
                 try:
                     s = Song.objects.get(songId=x.body)
                 except Song.DoesNotExist:
                     raise CommandError('Song "%s" does not exist' % poll_id)
+                print("create")
                 v = Vote(number=x.from_,song_id=s)
                 v.save()
