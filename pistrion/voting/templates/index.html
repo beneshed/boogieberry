@@ -4,9 +4,10 @@
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
             <script type="text/javascript" src="{% static 'js/TimeCircles.js' %}"></script>
             <link href="{% static 'css/TimeCircles.css' %}" rel="stylesheet">
+            <script type="text/javascript" src="{% static 'js/pistrion-app.js' %}"></script>
             <div class="row">
                 <div class="col-sm-2" style="color: white;">
-                    <div id="example">
+                    <div id="example" data-timer="59">
                     </div>
                 </div>
             </div>
@@ -20,6 +21,7 @@
                         <div class="chart-container">
                             <div class="widget-container table-responsive">
                             <table class="table table-hover table-striped order-table table-green">
+                            <div ng-app="pistrion-app">
                             <thead>
                                 <tr>
                                     <th>Song Number#</th>
@@ -32,34 +34,35 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Google</td>
-                                    <td>Mark Z</td>
-                                    <td>$ 9984.00</td>
-                                    <td>Test</td>
+                                    <td>{{song1.icon}}</td>
+                                    <td>{{song1.name}}</td>
+                                    <td>{{song1.artist}}{{song1.albumArtist}}</td>
+                                    <td>{{song1.songId}}</td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>Micro-soft</td>
-                                    <td>Nokia</td>
-                                    <td>$ 224.00</td>
-                                    <td>Paid</td>
+                                    <td>{{song2.icon}}</td>
+                                    <td>{{song2.name}}</td>
+                                    <td>{{song2.artist}}{{song2.albumArtist}}</td>
+                                    <td>{{song2.songId}}</td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td>Samsung</td>
-                                    <td>John</td>
-                                    <td>$ 354.00</td>
-                                    <td>Paid</td>
+                                    <td>{{song3.icon}}</td>
+                                    <td>{{song3.name}}</td>
+                                    <td>{{song3.artist}}{{song2.albumArtist}}</td>
+                                    <td>{{song3.songId}}</td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
-                                    <td>Apple</td>
-                                    <td>Jameson</td>
-                                    <td>$ 785.00</td>
-                                    <td>On Hold</td>
+                                    <td>{{song4.icon}}</td>
+                                    <td>{{song4.name}}</td>
+                                    <td>{{song4.artist}}{{song2.albumArtist}}</td>
+                                    <td>{{song4.songId}}</td>
                                 </tr>
                             </tbody>
                         </table>    
+                        </div>
                     </div>
                 </div>
             </div>
