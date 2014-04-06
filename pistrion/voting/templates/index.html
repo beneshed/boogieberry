@@ -131,8 +131,7 @@
         type: "GET",
         url: "/retrieve/",
         success: function( data ) {
-          alert( data );
-          //$("#play_key").rdio().play( data );
+          document.getElementById('apiswf').rdio_play( data );
         }
       });
 
