@@ -9,8 +9,14 @@ class Vote(TimeStampedModel):
     song_id = models.ForeignKey('Song')
 
     def __unicode__(self):
-        return u'%s' % str(self.number)
+        return u'%s' % self.song_id 
 
+class Result(TimeStampedModel):
+    songId = models.IntegerField()
+    value = models.IntegerField()
+
+    def __unicode__(self):
+        return u'%s' % str(songId) + ' ' + str(value)
 
 class Song(TimeStampedModel):
     songId = models.IntegerField()
