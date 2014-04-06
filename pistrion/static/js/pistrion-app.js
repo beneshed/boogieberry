@@ -32,4 +32,7 @@ app.controller('AppController', function($scope, $resource, Song) {
 
 app.factory('Song', function($resource) {
     return $resource('/api/songs/:id', {id:'@id'});
+}); 
+app.factory('Vote', function($resource) {
+    return $resource('/api/votes/:id', {id:'@id'});
 });
