@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import TemplateView
 
-from voting.views import SongViewSet, VoteViewSet, ResultViewSet, trigger, retrieve
+from voting.views import SongViewSet, VoteViewSet, ResultViewSet, trigger, retrieve, delete_votes
 from voting.models import Song, Vote
 
 from rest_framework.routers import DefaultRouter, SimpleRouter
@@ -26,5 +26,6 @@ urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'^trigger/$', trigger),
     url(r'^retrieve/$', retrieve),
+    url(r'^delete_votes/$', delete_votes),
     url(r'^api/', include(router.urls)),
 )
