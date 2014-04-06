@@ -99,6 +99,7 @@
 
 <!-- Main Container ends here -->
 <script type="text/javascript">
+
   $("#example").TimeCircles({animation: 'ticks',
     circle_bg_color: "lightgray",
     fg_width: 0.02,
@@ -112,21 +113,34 @@
     Seconds: { color: "white" }
     },
   });
+
   $("#example").TimeCircles().addListener( function() {
+
     var value = $("#example").TimeCircles().getTime();
-    if( value <= 1 ) {
-      $.get( "/trigger", function( ) success { } );
+    if( value <= 2 ) {
+
+      // reset the data
+      $.get( "/trigger", function() {} );
+      console.log( " logged to trigger " );
+
+      // actually get the winning key
       $.ajax({
         type: "GET",
         url: "/retrieve",
         success: function( data ) {
-          $("#play_key").rdio().play( data );
+          alert( data );
+          //$("#play_key").rdio().play( data );
         }
       });
+      console.log(" retrieved data " );
+
+      // clock restarts 
       $("#example").TimeCircles().restart();
+    } else { 
+      console.log(" not doin much ");
     }
-    console.log("hello world");
   });
+
   function getRandomInt (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
