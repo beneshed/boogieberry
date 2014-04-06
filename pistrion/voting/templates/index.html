@@ -120,7 +120,11 @@
     if( value <= 2 ) {
 
       // reset the data
-      $.get( "/trigger", function() {} );
+      $.ajax({
+        type: "GET",
+        url: "/trigger/",
+        async: false
+      });
 
       // actually get the winning key
       $.ajax({
