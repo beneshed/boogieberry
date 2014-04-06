@@ -53,6 +53,9 @@ def trigger(request):
     
     return HttpResponse(status=200)
 
+def delete_votes(request):
+    votes = Vote.objects.all().delete()
+    return HttpResponse(status=200)
 def retrieve(request):
     votes = Vote.objects.all()
     my_songids = []
