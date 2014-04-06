@@ -13,7 +13,7 @@ app.config(function($interpolateProvider) {
 
 app.controller('AppController', function($scope, $resource, Song) {
     var nums = [];
-    while(nums.length < 4) {
+    while(nums.length < 5) {
         var ranNum=Math.floor((Math.random()*101) + 1);
         var found=false;
         for(var i=0; i<nums.length;i++){
@@ -25,7 +25,7 @@ app.controller('AppController', function($scope, $resource, Song) {
     $scope.song2 = Song.get({id:nums[1]});
     $scope.song3 = Song.get({id:nums[2]});
     $scope.song4 = Song.get({id:nums[3]});
-    console.log($scope.song1);
+    $scope.song5 = Song.get({id:nums[4]});
 
     
 });

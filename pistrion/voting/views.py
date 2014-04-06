@@ -3,6 +3,7 @@ from django.template import RequestContext
 from django.views.generic import (ListView, DetailView)
 
 from rest_framework import viewsets
+from rest_framework.decorators import api_view
 
 from voting.serializers import (SongSerializer, VoteSerializer)
 from voting.models import (Song, Vote)
@@ -17,3 +18,10 @@ class VoteViewSet(viewsets.ModelViewSet):
     serializer_class = VoteSerializer
     filter_fields = ('song_id__songId')
 
+'''
+@api_view(['GET'])
+def count_votes(request):
+    votes = Vote.objects.all()
+    votes = votes.query.group_by = ['song_id__songId')
+    return votes
+'''
