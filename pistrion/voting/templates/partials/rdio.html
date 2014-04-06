@@ -1,14 +1,14 @@
 {% load staticfiles %}
 <div id="apiswf"></div>
 <div class="well" style="overflow: hidden;">
-  <div class="row" style="margin-bottom: 10px;">
+  <div class="row" id="hideme" style="visibility:none;">
     <div class="col-md-12">
-      <input id="play_key" class="form-control" value="" placeholder="a3751317">
+      <input id="play_key" class="form-control" value="a3751317">
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12"> 
-      <div class="playControls btn-group">
+    <div class="col-md-8"> 
+      <div class="playControls btn-group" style="margin-top:0px;">
         <button id="play" class="btn btn-default"><i class="fa fa-play-circle"></i></button>
         <button id="stop" class="btn btn-default"><i class="fa fa-stop"></i></button>
         <button id="pause" class="btn btn-default"><i class="fa fa-pause"></i></button>
@@ -16,6 +16,11 @@
         <button id="next" class="btn btn-default"><i class="fa fa-step-forward"></i></button>
       </div>
     </div>
+
+    <div class="col-md-4">
+      <img src="" id="art" class="albumArt">
+    </div>
+
   </div>
 </div>
 <div class="well" style="display: none">
@@ -31,3 +36,9 @@
     </div>
   </div>
 </div>
+
+<script>
+$(document).ready(function() {
+  $("#hideme").hide();
+});
+</script>
