@@ -4,13 +4,9 @@ from django.views.generic import (ListView, DetailView)
 
 from rest_framework import viewsets
 
-from voting.serializers import (SongPollSerializer, SongSerializer, VoteSerializer)
-from voting.models import (SongPoll, Song, Vote)
+from voting.serializers import (SongSerializer, VoteSerializer)
+from voting.models import (Song, Vote)
 # Create your views here.
-
-class SongPollViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = SongPoll.objects.all()
-    serializer_class = SongPollSerializer
 
 class SongViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Song.objects.all()

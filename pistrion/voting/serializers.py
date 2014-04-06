@@ -1,10 +1,5 @@
 from rest_framework import serializers
-from voting.models import (SongPoll, Song, Vote)
-
-class SongPollSerializer(serializers.ModelSerializer):
-    choices = serializers.RelatedField(many=True)
-    class Meta:
-        model = SongPoll
+from voting.models import (Song, Vote)
 
 class VoteSerializer(serializers.ModelSerializer):
     vote_id = serializers.RelatedField(many=False)

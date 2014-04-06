@@ -4,18 +4,9 @@ from django.contrib.auth.models import User
 from localflavor.us.models import PhoneNumberField
 
 # Create your models here.
-class SongPoll(TimeStampedModel):
-    creator = models.ForeignKey(User)
-    choices = models.ManyToManyField('Song')
-
-    def __unicode__(self):
-        return '%s' % self.id
-
-
 class Vote(TimeStampedModel):
     number = PhoneNumberField()
     vote_id = models.ForeignKey('Song')
-    poll_id = models.ForeignKey('Vote')
 
     def __unicode__(self):
         return '%' % self.number
