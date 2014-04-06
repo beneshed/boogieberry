@@ -12,7 +12,7 @@ for x in messages:
     if "+17039978436" not in x.from_ and x.date_created > datetime(2014, 4, 5, 23, 0, 0, 0):
         print x.date_created
 '''
-def get_votes_after_date(timestamp, id1):
+def get_votes_after_date(timestamp, id1, id2, id3, id4):
     account_sid = "ACec0c7c5211527b56dedd223ea469e3bc"
     auth_token  = "a79b8b5c99c2cf699782fe2026cf1036"
     client = TwilioRestClient(account_sid, auth_token)
@@ -25,7 +25,6 @@ def get_votes_after_date(timestamp, id1):
     vote2 = 0
     vote3 = 0
     vote4 = 0
-    collectedMessages = ()
 
     # convert current dates to timestamps, college messages
     for x in messages: 
@@ -33,10 +32,10 @@ def get_votes_after_date(timestamp, id1):
         if x.date_created > timestamp:
             if x.body == id1:
                 vote1 += 1
-            if x.body == (id1+1):
+            if x.body == id2:
                 vote2 += 1
-            if x.body == (id1+2):
+            if x.body == id3:
                 vote3 += 1
-            if x.body == (id1+3):
+            if x.body == id4:
                 vote4 += 1
     return [vote1, vote2, vote3, vote4]
