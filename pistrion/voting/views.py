@@ -47,7 +47,6 @@ def trigger(request):
                 s = Song.objects.get(songId=x.body)
             except Song.DoesNotExist:
                 raise CommandError('Song "%s" does not exist' % poll_id)
-            print("create")
             v = Vote(number=x.from_,song_id=s)
             v.save() 
 
@@ -64,6 +63,7 @@ def retrieve(request):
     data = Counter( my_songids )
 
     (song_id, _) = data.most_common()[0]
-    song_key = Song.objects.get( songId=song_id ).key
+    song_key = Song.objects.get( name=song_id ).key
+    print song_key
 
-    return HttpResponse({"song_key": song_key})
+    return HttpResponse(song_key)
