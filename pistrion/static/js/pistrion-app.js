@@ -30,6 +30,13 @@ app.controller('AppController', function($scope, $resource, Song) {
     
 });
 
+app.controller('VoteController', function($score, $resource, Vote) {
+    $scope.votes = Vote.query();
+    $scope.voteObjects = [];
+    $scope.push($scope.voteObjects);
+    
+});
+
 app.factory('Song', function($resource) {
     return $resource('/api/songs/:id', {id:'@id'});
 }); 
