@@ -29,11 +29,11 @@ class ResultViewSet(viewsets.ModelViewSet):
     serializer_class = ResultSerializer
 
 def trigger(request):
-    account_sid = "ACec0c7c5211527b56dedd223ea469e3bc"
-    auth_token  = "a79b8b5c99c2cf699782fe2026cf1036"
+    account_sid = "ACb53930b6ce7c4b42f4a5c36d49a935b6"
+    auth_token  = "06067fefdd853719c721ee6235b2215d"
     client = TwilioRestClient(account_sid, auth_token)
 
-    resource_uri = "/2010-04-01/Accounts/ACec0c7c5211527b56dedd223ea469e3bc/messages/"
+    resource_uri = "/2010-04-01/Accounts/ACb53930b6ce7c4b42f4a5c36d49a935b6/messages/"
     messages = client.messages.list()
     # convert current dates to timestamps, college messages
     for x in messages: 
@@ -63,8 +63,10 @@ def retrieve(request):
     for vote in votes:
         my_songids.append( vote.__unicode__())
 
+    print(my_songids)
     data = Counter( my_songids )
-
+    print(data)
+    
     (song_id, _) = data.most_common()[0]
     song_key = Song.objects.get( name=song_id ).key
 
