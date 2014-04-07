@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" >
+<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta name="description" content="Pistrion App "/>
+		<meta name="keywords" content="Rdio, Jukebox, Bitcamp, Rpi, Raspberry Pi" />
+		<meta name="author" content="Ben Waters, Kunal Sarkhal, Ross Bragg, Nic Anderson"/>
+		<link rel="shortcut icon" href="favicon.png">
+
+		<title>Home</title>
+		<!-- Bootstrap core CSS -->
+		<link href="/css/bootstrap.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="/css/style.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Roboto:200,400,300,500' rel='stylesheet' type='text/css'>
+		<link href="/css/TimeCircles.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<script src="js/respond.min.js"></script>
+		<![endif]-->
+
+		<script src="/js/custom.modernizr.js" type="text/javascript" ></script>
+	</head>
+<body>
+	<div class="container">
+
+		<div class="row">
+			<div class="col-sm-2" style="color: white;">
+				<div id="example" data-timer="">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<!-- chart starts here -->
+			<div class="col-md-12">
+				<div class="widget-box">
+
+					<div class="widget-title">
+						<h2><i class="glyphicon glyphicon-check"></i> Text the code to (703) 997-8436 to vote!</h2>
+					</div>
+
+					<div class="widget-container" ng-app="pistrion-app" ng-controller="AppController">
+
+						<div class="row">
+
+							<div id="item1" class="col-xs-12 col-sm-6 col-md-3 text-center" style="padding: 20px;">
+								<img src="">
+								<h2 style="font-family: Roboto; font-weight: 200;"></h2>
+							</div>
+
+							<div id="item2" class="col-xs-12 col-sm-6 col-md-3 text-center" style="padding: 20px;">
+								<img src="">
+								<h2 style="font-family: Roboto; font-weight: 200;"></h2>
+							</div>
+
+							<div id="item3" class="col-xs-12 col-sm-6 col-md-3 text-center" style="padding: 20px;">
+								<img src="">
+								<h2 style="font-family: Roboto; font-weight: 200;"></h2>
+							</div>
+
+							<div id="item4" class="col-xs-12 col-sm-6 col-md-3 text-center" style="padding: 20px;">
+								<img src="">
+								<h2 style="font-family: Roboto; font-weight: 200;"></h2>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div> <!-- close widget box -->
+			</div> <!-- close col -->
+
+		</div><!-- row End -->
+
+	<!-- Main Container ends here -->
+	</div>
+	<footer class="footer">
+		<p> 
+		<!-- Copyright information. You can remove my site link. --> 
+		Copyright © <a href="http://www.github.com/the-ben-waters/pistrion">Pistrion</a> | Designed by <a href="http://ad-says.com">AdSays Creation Pvt. Ltd.</a>
+		</p>
+	</footer>
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<!-- Important js for all pages end  -->
+
+	<script type="text/javascript" src="/js/TimeCircles.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+		});
+		$("#example").TimeCircles({animation: 'ticks',
+			circle_bg_color: "lightgray",
+			fg_width: 0.02,
+			bg_width: 0.2,
+			time: {
+			Days: { show: false },
+			Hours: { show: false },
+			Minutes: { show: false },
+			Seconds: { color: "white" }
+			},
+		});
+
+		$('img').hide();
+		$('img').each(function(i) {
+				if (this.complete) {
+						$(this).fadeIn();
+				} else {
+						$(this).load(function() {
+								$(this).slideDown(250);
+						});
+				}
+		});
+		$('#example').hide();
+		$('#example').fadeIn(1000);
+		$('body').css('padding-top', '0');
+
+		io = io.connect();
+
+		io.emit('newvote');
+
+		io.on('songs', function(data) {
+			for (var i = 0; i < data.length; i++) {
+				$("#item"+i+" img").attr("src", data[i]["icon400"])
+				$("#item"+i+" h2").attr("src", data[i]["name"])
+
+			}
+		});
+
+	</script>
+
+</body>
+</html> 
