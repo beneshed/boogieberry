@@ -1,5 +1,5 @@
 """
-Django settings for pistrion project.
+Django settings for boogieberry project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -74,9 +74,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
 )
 
-ROOT_URLCONF = 'pistrion_site.urls'
+ROOT_URLCONF = 'boogieberry_site.urls'
 
-WSGI_APPLICATION = 'pistrion_site.wsgi.application'
+WSGI_APPLICATION = 'boogieberry_site.wsgi.application'
 
 
 # Database
