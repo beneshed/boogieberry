@@ -6,6 +6,7 @@ A voting platform that votes on the song on the raspberry pi using the rdio api.
 Installation
 ---
 To install you must run the following commands below
+
     git clone https://github.com/the-ben-waters/boogieberry.git  
     cd ~/boogieberry  
     python manage.py syncdb  
