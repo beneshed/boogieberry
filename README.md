@@ -7,8 +7,11 @@ Installation
 ---
 To install you must run the following commands below
 
-    git clone https://github.com/the-ben-waters/boogieberry.git  
+    git clone https://github.com/the-ben-waters/boogieberry.git 
+    virtualenv myenv
+    source myenv/bin/activate
     cd ~/boogieberry  
+    pip install -r requirements.txt
     python manage.py syncdb  
     python manage.py loaddata boogieberry/voting/fixtures/fix.json  
     python manage.py runserver
